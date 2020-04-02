@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="mckA390nq9enWnEOLW8yGwxTSNfbPVcKqVUnhER0SEY">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://kemaosen.github.io/"); // 这里替换成你的首页地址
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+  <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0b5b495b.js","daovoice")
+  
+  daovoice('init', {
+    app_id: "0b5b495b",
+    user_id: "NO_89757", // 必填: 该用户在您系统上的唯一ID
+    email: "daovoice@example.com", // 选填:  该用户在您系统上的主邮箱
+    name: "道客船长", // 选填: 用户名
+    signed_up: 1449821660 // 选填: 用户的注册时间，用Unix时间戳表示
+    });
+    daovoice('update');
+  </script>
+
+
+  <meta name="description" content="自学react">
+<meta name="keywords" content="学习react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React之旅一">
+<meta property="og:url" content="https://kemaosen.github.io/React之旅-基础知识.html">
+<meta property="og:site_name" content="Kms&#39;Home">
+<meta property="og:description" content="自学react">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/kemaosen/MakeDownGit/blob/master/React/react-xx/4.png?raw=true">
+<meta property="og:updated_time" content="2020-03-19T03:42:49.381Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React之旅一">
+<meta name="twitter:description" content="自学react">
+<meta name="twitter:image" content="https://github.com/kemaosen/MakeDownGit/blob/master/React/react-xx/4.png?raw=true">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://kemaosen.github.io/React之旅-基础知识">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>React之旅一 | Kms'Home</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+    
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kms'Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">kms</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kemaosen.github.io/React之旅-基础知识.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kms">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kms'Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React之旅一
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-06 22:11:53" itemprop="dateCreated datePublished" datetime="2019-11-06T22:11:53+08:00">2019-11-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-19 11:42:49" itemprop="dateModified" datetime="2020-03-19T11:42:49+08:00">2020-03-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-description">自学react</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一-引子"><a href="#一-引子" class="headerlink" title="一.引子"></a>一.引子</h3><p>一个优秀的程序员不会局限于一种语言<br>一个优秀的前端攻城狮不会局限于一种框架<br>何况它还那么的强大<br><!-- ![image](https://raw.githubusercontent.com/kemaosen/MakeDownGit/master/React/react-xx/1.jpg)   --><br>一开始还是我是拒绝学习的 直到我司来了一位10年开发经验的大佬…向大佬学习！！！</p>
+<h3 id="二-什么是react"><a href="#二-什么是react" class="headerlink" title="二.什么是react"></a>二.什么是react</h3><p>React是Facebook开发的一款JS库。React一般被用来作为MVC中的V层，它不依赖其他任何的库，因此开发中，可以与任何其他的库集成使用，包括Jquery、Backbone等。它可以在浏览器端运行，也可以通过nodejs在服务端渲染。React的思想非常独特，性能出众，可以写出重复代码少，逻辑清晰的前端代码。React的语法是jsx，通过使用这种语法，可以在react代码中直接混合使用js和html来编写代码，这样代码的逻辑就非常清晰，当然也意味着，需要将jsx代码编译成普通的javascript代码，才能在浏览器中运行，这个过程根据实际项目情况，可以选择多种不同的思路，或者在服务器端通过webpack进行编译。<br>React是MVC框架使用数据驱动视图，当数据发生变化视图发生变化。若只是修改视图，数据并不会改变。<br>Vue是MVVM框架。双向数据绑定，当数据发生变化视图发生变化。视图发生变化，数据也会随之改变<br><a href="https://zh-hans.reactjs.org/" target="_blank" rel="noopener">React官网</a>:<a href="https://zh-hans.reactjs.org/" target="_blank" rel="noopener">https://zh-hans.reactjs.org/</a>  </p>
+<h3 id="三-React脚手架"><a href="#三-React脚手架" class="headerlink" title="三.React脚手架"></a>三.React脚手架</h3><ol>
+<li>什么是react脚手架：<br>FaceBook官方发布了一个无需配置，用于快速构建开发环境的脚手架工(create-react-app)</li>
+<li><p>如何使用： </p>
+<ol>
+<li><p>使用npm自带的npx安装(官方推荐，本地就不会下载create-react-app，随用随创)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app project-nameprojectName</span><br><span class="line">cd project-name</span><br><span class="line">npm run start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全局安装脚手架创建</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 全局安装脚手架 --&gt;</span><br><span class="line">npm install -g create-react-app</span><br><span class="line">&lt;!-- 在指定的目录下创建你的新项目 --&gt;</span><br><span class="line">create-react-app project-name</span><br><span class="line">cd project-name</span><br><span class="line">npm run start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：<br>React帮我们将艮长的配置文件全部隐藏了。只能通过eject命令将所有的配置文件暴露出来，但请牢记这个操作是不可逆的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run eject</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="四-React中的虚拟Dom是什么？"><a href="#四-React中的虚拟Dom是什么？" class="headerlink" title="四.React中的虚拟Dom是什么？"></a>四.React中的虚拟Dom是什么？</h3><p>React中是如何通过ReactDOM.render()方法生成Dom节点的呢？</p>
+<ol>
+<li><p>什么是JSX？<br>JSX是React的核心组成部分，它使用XML标记的方式去直接声明界面，界面组件之间可以互相嵌套。可以理解为在JS中编写与XML类似的语言,一种定义带属性树结构（DOM结构）的语法，它的目的不是要在浏览器或者引擎中实现，它的目的是通过各种编译器将这些标记编译成标准的JS语言。<br>你可以将HTML 语言直接写在 JavaScript 语言之中，不加任何引号，这就是 JSX 的语法，它允许 HTML 与 JavaScript 的混写    </p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1 className=<span class="string">"text-style"</span>  &gt;Hello, world!<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p> JSX将原本HTML与javaScript混写的代码通过 <strong>babel-preset-react-app</strong> 插件将代码转换成React.createElement(elementn,props,[…children])可以创建的方式  </p>
+</li>
+<li><p>他是如何转换的？<br>看上面那部分代码，我们将它放在<a href="https://www.babeljs.cn/repl" target="_blank" rel="noopener">babeljs</a>上查看下  </p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 转换后的结果 --&gt;</span><br><span class="line">React.createElement(<span class="string">"div"</span>, <span class="literal">null</span>, React.createElement(<span class="string">"h1"</span>, &#123;</span><br><span class="line">    className: <span class="string">"text-style"</span>,</span><br><span class="line">    name: <span class="number">1212</span></span><br><span class="line">&#125;, <span class="string">"Hello, world!"</span>));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React.createElement(elementn,props,[…children])解析<br>element:  要创建的HTML元素 也就是我们常说的HTML标签 (这个是必须的,还可以为函数组件/类组件)<br> props:  是在这个标签上的所有的属性 比如上面的列子中含有的 className 和 name(这是必须的，没有参数则为Null)<br> children： 这个参数是标签中是否含有文本或标签</p>
+<pre><code>什么都没有：&apos;&apos; 就是空  
+仅含有文本：呈现方式为 &apos;你好世界&apos;;  
+仅含有标签:呈现方式为{className:&apos;border-red&apos;}
+含有文本+标签(多个)：呈现方式为[&apos;你好世界&apos;，{className:&apos;border-red&apos;}，{···}]  
+</code></pre></li>
+<li><p>React何时创建的虚拟DOM<br>执行React.createElement(elementn,props,[…children])就会创建虚拟DOM对象了。我们来看看是什么样子的<br><img src="https://github.com/kemaosen/MakeDownGit/blob/master/React/react-xx/4.png?raw=true" alt="img4"><br>可以看出type属性就是我们的第一个参数<br>props就是我们attr<br>children就是我们嵌套的内容了</p>
+</li>
+<li><p>React.render(JSX,document.getElementById(‘root’))<br>这一切的努力都是为了回到原点。使用React.render()方法将虚拟DOM对象挂在节点上  </p>
+</li>
+<li><p>什么是纯函数</p>
+<ul>
+<li>相同的输入 一定会返回相同的输出</li>
+<li>永远 不会修改传入的参数值<br>\</li>
+</ul>
+</li>
+</ol>
+<h3 id="五-JSX语法细节"><a href="#五-JSX语法细节" class="headerlink" title="五.JSX语法细节"></a>五.JSX语法细节</h3><ol>
+<li><p>JSX如何解析html文本<br>使用dangerouslySetInnerHTML 属性 但这是危险的</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span dangerouslySetInnerHTML=&#123;&#123;<span class="attr">__html</span>:item&#125;&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JSX中添加CSS属性class 要使用className 属性</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> className=<span class="string">"input"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JSXlabel的坑  要使用htmlFor 关联</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;label htmlFor=&quot;inse&quot;&gt;输入内容&lt;/label&gt;</span><br><span class="line">&lt;input id=&quot;inse&quot; className=&quot;input&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="六-知识点"><a href="#六-知识点" class="headerlink" title="六.知识点"></a>六.知识点</h3><ol>
+<li>setState：React中修改数据不能直接修改 要使用setState方法 这个分两种方式  </li>
+</ol>
+<ul>
+<li><p>setState修改数据是异步的   </p>
+<ol>
+<li><p>第一种方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.setState = &#123;</span><br><span class="line">    xxx: 123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>第二种方法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        status:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,()=&gt;&#123;</span><br><span class="line">   <span class="comment">// 在这里可以获取到this.setState修改后的数据</span></span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">this</span>.setState(异步获取 可能获取不到修改后的值)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li><p>事件绑定</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>() &#123; </span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        inputValue:<span class="string">'XXX'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.handleAdd = <span class="keyword">this</span>.handleAdd.bind(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第一种</span></span><br><span class="line">handleAdd()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    <span class="comment">// 没有this.handleAdd = this.handleAdd.bind(this) 会获取不到this</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第二种   推荐写法</span></span><br><span class="line">chnageInputValue = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        inputValue:e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleKeyUp = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> (e.keyCode === <span class="number">13</span>) &#123; </span><br><span class="line">        <span class="keyword">this</span>.handleClickAdd()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;&gt;</span><br><span class="line">            &lt;input type=<span class="string">"text"</span> onChange=&#123;<span class="keyword">this</span>.chnageInputValue&#125; value=&#123;<span class="keyword">this</span>.state.inputValue&#125; /&gt; <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleAdd&#125;</span>&gt;</span>&#123;this.props.btnText&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span> </span><br><span class="line">            <span class="comment">// 添加参数</span></span><br><span class="line">            &lt;input type=<span class="string">"text"</span> onChange=&#123;()=&gt;&#123;<span class="keyword">this</span>.chnageInputValueCanShu(传递的参数)&#125;&#125; value=&#123;<span class="keyword">this</span>.state.inputValue&#125;  /&gt;</span><br><span class="line">            <span class="comment">// 绑定键盘事件</span></span><br><span class="line">            &lt;input type=<span class="string">"text"</span> onChange=&#123;<span class="keyword">this</span>.chnageInputValue&#125; onKeyUp=&#123;<span class="keyword">this</span>.handleKeyUp&#125;</span><br><span class="line">            value=&#123;<span class="keyword">this</span>.state.inputValue&#125; /&gt;</span><br><span class="line">        &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ref<br>引入 createRef</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component, createRef&#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">constructor</span>() &#123; </span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        inputValue:<span class="string">'XXX'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">chnageInputValue = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        inputValue:e.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">handleClickAdd = <span class="function"><span class="params">()</span> =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">this</span>.props.addTodo(<span class="keyword">this</span>.state.inputValue)</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        inputValue:<span class="string">''</span></span><br><span class="line">    &#125;, () =&gt; &#123; </span><br><span class="line">        <span class="keyword">this</span>.inputRef.current.focus();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inputRef = createRef()  <span class="comment">// 点击添加按钮 鼠标光标自动回到input上</span></span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;&gt;</span><br><span class="line">            &lt;input type=<span class="string">"text"</span> onChange=&#123;<span class="keyword">this</span>.chnageInputValue&#125; </span><br><span class="line">                value=&#123;<span class="keyword">this</span>.state.inputValue&#125; ref=&#123;<span class="keyword">this</span>.inputRef&#125;/&gt;</span><br><span class="line">            &lt;button onClick=&#123;<span class="keyword">this</span>.handleClickAdd&#125;&gt;&#123;<span class="keyword">this</span>.props.btnText&#125;&lt;<span class="regexp">/button&gt; </span></span><br><span class="line"><span class="regexp">        &lt;/</span>&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用prop-types校验参数类型: 子组件中效验父组件传递的参数是否符合规范</p>
+<ol>
+<li><p>安装 prop-types</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -S prop-types</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何使用 PropTypes</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> propTypes = &#123; </span><br><span class="line">    todoList: PropTypes.arrayOf(PropTypes.object)<span class="comment">// 验证参数是数组 里面的每一项是对象</span></span><br><span class="line">    todoList:PropTypes.arrayOf(PropTypes.shape(&#123;</span><br><span class="line">        id:PropTypes.number.isRequired,</span><br><span class="line">        title:PropTypes.string.isRequired,</span><br><span class="line">        isCompleted:PropTypes.bool.isRequired,</span><br><span class="line">    &#125;)).isRequired<span class="comment">// // 验证参数是数组 每一项是对象 对象的每一个参数类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//组件名.propTypes</span></span><br><span class="line">TodoItem.propTypes = &#123;</span><br><span class="line">    <span class="comment">// 属性值</span></span><br><span class="line">    item: PropTypes.oneOfType([PropTypes.string,PropTypes.number]),<span class="comment">// 可以使字符串 也可以是number</span></span><br><span class="line">    itemDelete: PropTypes.func,</span><br><span class="line">    index:PropTypes.number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>defaultProps的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TodoItem.propTypes = &#123;</span><br><span class="line">    test:PropTypes.string.isRequired    //isRequired:父组件必须传递给我</span><br><span class="line">&#125;</span><br><span class="line">TodoItem.defaultProps = &#123;</span><br><span class="line">    test:&apos;Hello World&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>react 父组件传值给子组件</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父组件</span></span><br><span class="line"> &lt;ul&gt;</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">this</span>.state.list.map(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123; </span><br><span class="line">             <span class="comment">//  在子组件上定义自定义属性 并传递参数 </span></span><br><span class="line">             <span class="keyword">return</span>  <span class="xml"><span class="tag">&lt;<span class="name">TodoItem</span> <span class="attr">item</span>=<span class="string">&#123;item&#125;</span> <span class="attr">index</span>=<span class="string">&#123;index&#125;</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">         &#125;)</span></span><br><span class="line"><span class="xml">     &#125;</span></span><br><span class="line"><span class="xml"> <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"> <span class="comment">// 子组件 通过this.props.属性取值</span></span><br><span class="line"> &lt;li  &gt;</span><br><span class="line">     &lt;span dangerouslySetInnerHTML=&#123;&#123;<span class="attr">__html</span>:<span class="keyword">this</span>.props.item&#125;&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">     &lt;button onClick=&#123;() =&gt; &#123; <span class="keyword">this</span>.handleItemDelete(<span class="keyword">this</span>.props.index) &#125;&#125;&gt;删除&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>li&gt;</span><br><span class="line"> <span class="comment">// 子组件也可以使用对象结构的方式 获取</span></span><br><span class="line"> render() &#123; </span><br><span class="line">     <span class="keyword">let</span> &#123; item &#125; = <span class="keyword">this</span>.props</span><br><span class="line">     <span class="keyword">return</span> (</span><br><span class="line">             &lt;li  &gt;</span><br><span class="line">                 &lt;span dangerouslySetInnerHTML=&#123;&#123;<span class="attr">__html</span>:item&#125;&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">             &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">     )</span></span><br><span class="line"><span class="regexp"> &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>react 子组件如何修改父组件中state中的值</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在父组件中的子组件上添加属性 传递方法 itemDelete方法</span></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.state.list.map(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">TodoItem</span> <span class="attr">itemDelete</span>=<span class="string">&#123;this.handleItemDelete&#125;</span> <span class="attr">item</span>=<span class="string">&#123;item&#125;</span> <span class="attr">index</span>=<span class="string">&#123;index&#125;</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">        &#125;)</span></span><br><span class="line"><span class="xml">    &#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在子组件中使用this.props.itemDelete调用父组件的方法</span></span><br><span class="line">handleItemDelete = <span class="function"><span class="params">()</span> =&gt;</span> &#123; </span><br><span class="line">   <span class="keyword">this</span>.props.itemDelete(<span class="keyword">this</span>.props.index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>React中的生命周期函数：指某一时刻组件会自动调用执行函数</p>
+<ol>
+<li>componentWillMount：在组件即将挂载到页面的时刻自动调用</li>
+<li>componentDidMount: 在组件挂载到页面的时刻自动调用</li>
+<li><p>shouldComponentUpdate(nextProps,nextState)：在组件更新之前或自动调用 需要返回boolean值 return true 更新组件 false 不更新组件  </p>
+<ol>
+<li>nextProps：更新后(下一次)的props的值</li>
+<li>nextState：下一次state的值<br>使用场景：在父组件中输入框中更新数据 会使子组件render自动更新 设置false 强制不更新 只在props的值变更影响子组件渲染的时候更新<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">    // 下一次的item的值与当前的item的是否相等 不相等更新子组件 相等不更新</span><br><span class="line">    if (nextProps.item !== this.props.item) &#123;</span><br><span class="line">        return true</span><br><span class="line">    &#125; else &#123; </span><br><span class="line">        return false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>componentWillUpdate：shouldComponentUpdate执行后执行 在render执行前执行   </p>
+</li>
+<li>componentDidUpdate：组件更新完成之后 执行</li>
+<li>componentWillReceiveProps：当一个组件从父组件接收参数 只要父组件render执行了 该函数就会执行   <pre><code>若当前子组件第一次现在在父组件中 改钩子不会执行  
+若当前子组件已经在父组件中 该钩子会执行  
+</code></pre></li>
+<li>componentWillUnmount：组件销毁前的钩子</li>
+</ol>
+</li>
+<li><p>React中如何使用动画</p>
+<ol>
+<li><p>使用css写动画</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">jsx</span><br><span class="line">handleToggle = <span class="function"><span class="params">()</span> =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">()</span> =&gt;</span> (&#123; </span><br><span class="line">        show:!<span class="keyword">this</span>.state.show</span><br><span class="line">    &#125;))</span><br><span class="line">&#125;</span><br><span class="line">render() &#123; </span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;&gt;</span><br><span class="line">            &lt;div className=&#123;<span class="keyword">this</span>.state.show ? <span class="string">'show'</span> : <span class="string">'hied'</span>&#125;&gt;Hello Wrold&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;button onClick=&#123;this.handleToggle&#125;&gt;toggle&lt;/</span>button&gt;</span><br><span class="line">        &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">css</span></span><br><span class="line"><span class="regexp">.show&#123;</span></span><br><span class="line"><span class="regexp">    animation: show-item 2s ease-in forwards;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">.hied&#123;</span></span><br><span class="line"><span class="regexp">    animation: hide-item 2s ease-in forwards;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">@keyframes show-item&#123;</span></span><br><span class="line"><span class="regexp">    0% &#123; color: pink; opacity:0; &#125;</span></span><br><span class="line"><span class="regexp">    50% &#123; color: blue; opacity: .5; &#125;</span></span><br><span class="line"><span class="regexp">    100% &#123; color: red; opacity: 1; &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">@keyframes hide-item&#123;</span></span><br><span class="line"><span class="regexp">    0% &#123; color: pink; opacity: 1; &#125;</span></span><br><span class="line"><span class="regexp">    50% &#123; color: blue; opacity: .5; &#125;</span></span><br><span class="line"><span class="regexp">    100% &#123; color: red; opacity: 0; &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用react-transition-group 做动画</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 安装 react-transition-group </span><br><span class="line"><span class="number">2.</span> npm install react-transition-group</span><br><span class="line"><span class="number">3.</span> 使用 </span><br><span class="line"><span class="keyword">import</span> &#123; CSSTransition,TransitionGroup &#125; <span class="keyword">from</span> <span class="string">"react-transition-group"</span>;<span class="comment">// 引入组件</span></span><br><span class="line"><span class="comment">// CSSTransition 只能对于单个元素 单个组件</span></span><br><span class="line"><span class="comment">// TransitionGroup 多个组件  用TransitionGroup 包裹多个CSSTransition</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./index.css'</span><span class="comment">// 引入样式</span></span><br><span class="line"></span><br><span class="line">&lt;TransitionGroup&gt;</span><br><span class="line">    <span class="keyword">this</span>.state.list.map(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;CSSTransition</span><br><span class="line">                key=&#123;index&#125;</span><br><span class="line">                <span class="comment">// true 执行入场动画  false执行出场动画</span></span><br><span class="line">                <span class="keyword">in</span>=&#123;<span class="keyword">this</span>.state.show&#125;</span><br><span class="line">                <span class="comment">// 设置动画执行时间</span></span><br><span class="line">                timeout=&#123;<span class="number">2000</span>&#125;</span><br><span class="line">                <span class="comment">// 动画库的名字 自定义 </span></span><br><span class="line">                classNames=<span class="string">"fade"</span></span><br><span class="line">                <span class="comment">// 动画结束后是否显示Dom元素</span></span><br><span class="line">                unmountOnExit</span><br><span class="line">                <span class="comment">// 页面加载出来 是否加载动画 </span></span><br><span class="line">                appear=&#123;<span class="literal">true</span>&#125;</span><br><span class="line">                <span class="comment">//  enter”或“ appear”类后立即触发的回调。 入场动画开始之前 执行结束</span></span><br><span class="line">                onEnter=&#123;() =&gt; &#123; <span class="built_in">console</span>.log(<span class="number">1111</span>); &#125;&#125;</span><br><span class="line">                <span class="comment">// enter-active”或“ appear-active”类后立即触发的回调。 /* 入场动画开始后 入场动画执行中 还没有结束 时调用</span></span><br><span class="line">                onEntering=&#123;() =&gt; &#123; <span class="built_in">console</span>.log(<span class="number">22222</span>); &#125;&#125;</span><br><span class="line">                <span class="comment">// 入场动画完全 结束后调用</span></span><br><span class="line">                onEntered=&#123;() =&gt; &#123; <span class="built_in">console</span>.log(<span class="number">3333</span>); &#125;&#125;</span><br><span class="line">                <span class="comment">// 出场动画开始前调用</span></span><br><span class="line">                onExit=&#123;() =&gt; &#123; <span class="built_in">console</span>.log(<span class="number">4444</span>); &#125;&#125;</span><br><span class="line">                <span class="comment">// 出场动画开始后 调用 动画还在执行中</span></span><br><span class="line">                onExiting=&#123;() =&gt; &#123; <span class="built_in">console</span>.log(<span class="number">55555</span>); &#125;&#125;</span><br><span class="line">                <span class="comment">// 出场动画执行完后 调用</span></span><br><span class="line">                onExited=&#123;() =&gt; &#123; <span class="built_in">console</span>.log(<span class="number">666</span>); &#125;&#125;</span><br><span class="line">            &gt;</span><br><span class="line">                &lt;div &gt;Hello Wrold&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>CSSTransition&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/TransitionGroup&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">css</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span>* 入场动画开始前 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">/</span>* fade-appear 页面加载就会执行 配合appear属性 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">.fade-enter, .fade-appear&#123; opacity: 0; color: blue; &#125;</span></span><br><span class="line"><span class="regexp">/</span>* 入场动画开始后 入场动画执行中 还没有结束 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">/</span>* fade-appear-active 页面加载就会执行 配合appear属性 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">.fade-enter-active, .fade-appear-active&#123;</span></span><br><span class="line"><span class="regexp">    opacity: 1; color: blue; transition:all 2s ease-in; &#125;</span></span><br><span class="line"><span class="regexp">/</span>* 入场动画结束后 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">/</span>* fade-appear-done 页面加载就会执行 配合appear属性 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">.fade-enter-done, .fade-appear-done&#123; opacity: 1; color: blue; &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span>* 出场动画前 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">.fade-exit&#123; opacity: 1; &#125;</span></span><br><span class="line"><span class="regexp">/</span>* 出场动画后 出场动画执行中 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">.fade-exit-active&#123; opacity: 0; transition:all 2s ease-in; &#125;</span></span><br><span class="line"><span class="regexp">/</span>* 出场动画后 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">.fade-exit-done&#123; opacity: 0; &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="七-UI组件和容器组件-amp-无状态组件"><a href="#七-UI组件和容器组件-amp-无状态组件" class="headerlink" title="七. UI组件和容器组件&amp;无状态组件"></a>七. UI组件和容器组件&amp;无状态组件</h3><ol>
+<li>什么是UI：只负责页面渲染 不负责页面操作</li>
+<li>什么书容器组件：只负责页面逻辑操作，不负责UI渲染</li>
+<li>什么是无状态组件：当组件中只有render函数的时候 则可以更改此组件为无状态组件<ol>
+<li>好处：性能高<h3 id="八-管理页面css文件"><a href="#八-管理页面css文件" class="headerlink" title="八. 管理页面css文件"></a>八. 管理页面css文件</h3></li>
+</ol>
+</li>
+<li><p>安装styled-components</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i styled-components</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//在组件文件夹中新建style.js === style.css</span></span><br><span class="line"> <span class="comment">// 添加全局样式文件</span></span><br><span class="line"><span class="keyword">import</span> &#123; createGlobalStyle &#125; <span class="keyword">from</span> <span class="string">'styled-components'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> GlobalStyle = createGlobalStyle<span class="string">`</span></span><br><span class="line"><span class="string">     body&#123;</span></span><br><span class="line"><span class="string">         background-color:red;</span></span><br><span class="line"><span class="string">     &#125;</span></span><br><span class="line"><span class="string"> `</span></span><br><span class="line"> <span class="comment">// 组件中</span></span><br><span class="line"> <span class="keyword">import</span> &#123; GlobalStyle &#125; <span class="keyword">from</span>  <span class="string">'./style.js'</span>;</span><br><span class="line"> ReactDOM.render(</span><br><span class="line">     &lt;&gt;</span><br><span class="line">         &lt;GlobalStyle /&gt;</span><br><span class="line">         &lt;App &gt; <span class="xml"><span class="tag">&lt;/<span class="name">App</span>&gt;</span></span></span><br><span class="line">     &lt;<span class="regexp">/&gt; , document.getElementById('root'));</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="九-添加PC端统一样式文件-reset-css"><a href="#九-添加PC端统一样式文件-reset-css" class="headerlink" title="九.添加PC端统一样式文件  reset.css"></a>九.添加PC端统一样式文件  reset.css</h3><pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span>, <span class="selector-tag">div</span>, <span class="selector-tag">span</span>, <span class="selector-tag">applet</span>, <span class="selector-tag">object</span>, <span class="selector-tag">iframe</span>,</span><br><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h5</span>, <span class="selector-tag">h6</span>, <span class="selector-tag">p</span>, <span class="selector-tag">blockquote</span>, <span class="selector-tag">pre</span>,</span><br><span class="line"><span class="selector-tag">a</span>, <span class="selector-tag">abbr</span>, <span class="selector-tag">acronym</span>, <span class="selector-tag">address</span>, <span class="selector-tag">big</span>, <span class="selector-tag">cite</span>, <span class="selector-tag">code</span>,</span><br><span class="line"><span class="selector-tag">del</span>, <span class="selector-tag">dfn</span>, <span class="selector-tag">em</span>, <span class="selector-tag">img</span>, <span class="selector-tag">ins</span>, <span class="selector-tag">kbd</span>, <span class="selector-tag">q</span>, <span class="selector-tag">s</span>, <span class="selector-tag">samp</span>,</span><br><span class="line"><span class="selector-tag">small</span>, <span class="selector-tag">strike</span>, <span class="selector-tag">strong</span>, <span class="selector-tag">sub</span>, <span class="selector-tag">sup</span>, <span class="selector-tag">tt</span>, <span class="selector-tag">var</span>,</span><br><span class="line"><span class="selector-tag">b</span>, <span class="selector-tag">u</span>, <span class="selector-tag">i</span>, <span class="selector-tag">center</span>,</span><br><span class="line"><span class="selector-tag">dl</span>, <span class="selector-tag">dt</span>, <span class="selector-tag">dd</span>, <span class="selector-tag">ol</span>, <span class="selector-tag">ul</span>, <span class="selector-tag">li</span>,</span><br><span class="line"><span class="selector-tag">fieldset</span>, <span class="selector-tag">form</span>, <span class="selector-tag">label</span>, <span class="selector-tag">legend</span>,</span><br><span class="line"><span class="selector-tag">table</span>, <span class="selector-tag">caption</span>, <span class="selector-tag">tbody</span>, <span class="selector-tag">tfoot</span>, <span class="selector-tag">thead</span>, <span class="selector-tag">tr</span>, <span class="selector-tag">th</span>, <span class="selector-tag">td</span>,</span><br><span class="line"><span class="selector-tag">article</span>, <span class="selector-tag">aside</span>, <span class="selector-tag">canvas</span>, <span class="selector-tag">details</span>, <span class="selector-tag">embed</span>, </span><br><span class="line"><span class="selector-tag">figure</span>, <span class="selector-tag">figcaption</span>, <span class="selector-tag">footer</span>, <span class="selector-tag">header</span>, <span class="selector-tag">hgroup</span>, </span><br><span class="line"><span class="selector-tag">menu</span>, <span class="selector-tag">nav</span>, <span class="selector-tag">output</span>, <span class="selector-tag">ruby</span>, <span class="selector-tag">section</span>, <span class="selector-tag">summary</span>,</span><br><span class="line"><span class="selector-tag">time</span>, <span class="selector-tag">mark</span>, <span class="selector-tag">audio</span>, <span class="selector-tag">video</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">font</span>: inherit;</span><br><span class="line">    <span class="attribute">vertical-align</span>: baseline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span>, <span class="selector-tag">aside</span>, <span class="selector-tag">details</span>, <span class="selector-tag">figcaption</span>, <span class="selector-tag">figure</span>, </span><br><span class="line"><span class="selector-tag">footer</span>, <span class="selector-tag">header</span>, <span class="selector-tag">hgroup</span>, <span class="selector-tag">menu</span>, <span class="selector-tag">nav</span>, <span class="selector-tag">section</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">line-height</span>: <span class="number">1</span>; &#125;</span><br><span class="line"><span class="selector-tag">ol</span>, <span class="selector-tag">ul</span> &#123; <span class="attribute">list-style</span>: none; &#125;</span><br><span class="line"><span class="selector-tag">blockquote</span>, <span class="selector-tag">q</span> &#123; <span class="attribute">quotes</span>: none; &#125;</span><br><span class="line"><span class="selector-tag">blockquote</span><span class="selector-pseudo">:before</span>, <span class="selector-tag">blockquote</span><span class="selector-pseudo">:after</span>,</span><br><span class="line"><span class="selector-tag">q</span><span class="selector-pseudo">:before</span>, <span class="selector-tag">q</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">content</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse;</span><br><span class="line">    <span class="attribute">border-spacing</span>: <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><ol>
+<li>命令式开发：即jQuery直接操作DOM</li>
+<li>声明式开发：react 根据数据显示页面</li>
+<li>react中的数据是单项数据流</li>
+<li>state，prpos 的值发生改变 render函数就会重新渲染一次<h3 id="神头鬼脸·魔法写法"><a href="#神头鬼脸·魔法写法" class="headerlink" title="神头鬼脸·魔法写法"></a>神头鬼脸·魔法写法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;List</span><br><span class="line">    style=&#123;&#123;<span class="attr">width</span>:<span class="string">'300px'</span>&#125;&#125;</span><br><span class="line">    bordered</span><br><span class="line">    dataSource=&#123;data&#125;</span><br><span class="line">    renderItem=&#123;(item,index) =&gt; (</span><br><span class="line">        &lt;List.Item onClick=&#123;(index) =&gt; &#123; handleDeleteItem(index) &#125;&#125; &gt;&#123;item&#125;&lt;<span class="regexp">/List.Item&gt;        /</span><span class="regexp">/ 获取不到index的值 因为click 的第一个参数就当前Dom 对象</span></span><br><span class="line"><span class="regexp">        &lt;List.Item onClick=&#123;()=&gt;handleDeleteItem(index)&#125; &gt;&#123;item&#125;&lt;/</span>List.Item&gt;        <span class="comment">// 可以获取到</span></span><br><span class="line">    ) &#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="kms 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="kms 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag"># React</a>
+          
+            <a href="/tags/学习/" rel="tag"># 学习</a>
+          
+            <a href="/tags/框架/" rel="tag"># 框架</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Vue权限动态路由菜单.html" rel="next" title="Vue权限动态路由菜单">
+                <i class="fa fa-chevron-left"></i> Vue权限动态路由菜单
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Nuxt微信分享微信支付.html" rel="prev" title="Nuxt微信分享微信支付">
+                Nuxt微信分享微信支付 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDc0NS8yMTI2Ng=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="kms">
+            
+              <p class="site-author-name" itemprop="name">kms</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/kemaosen" title="GitHub &rarr; https://github.com/kemaosen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://juejin.im/user/5cc64a7651882525041c6824" title="掘金 &rarr; https://juejin.im/user/5cc64a7651882525041c6824" rel="noopener" target="_blank"><i class="fa fa-fw fa-juejin"></i>掘金</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-引子"><span class="nav-number">1.</span> <span class="nav-text">一.引子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-什么是react"><span class="nav-number">2.</span> <span class="nav-text">二.什么是react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-React脚手架"><span class="nav-number">3.</span> <span class="nav-text">三.React脚手架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-React中的虚拟Dom是什么？"><span class="nav-number">4.</span> <span class="nav-text">四.React中的虚拟Dom是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-JSX语法细节"><span class="nav-number">5.</span> <span class="nav-text">五.JSX语法细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-知识点"><span class="nav-number">6.</span> <span class="nav-text">六.知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-UI组件和容器组件-amp-无状态组件"><span class="nav-number">7.</span> <span class="nav-text">七. UI组件和容器组件&amp;无状态组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-管理页面css文件"><span class="nav-number">8.</span> <span class="nav-text">八. 管理页面css文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-添加PC端统一样式文件-reset-css"><span class="nav-number">9.</span> <span class="nav-text">九.添加PC端统一样式文件  reset.css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注："><span class="nav-number">10.</span> <span class="nav-text">注：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神头鬼脸·魔法写法"><span class="nav-number">11.</span> <span class="nav-text">神头鬼脸·魔法写法</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kms</span>
+  <div>
+  <span>&nbsp;<a href="http://www.beian.miit.gov.cn">皖ICP备19023836号</a></span>
+    <p>版权所有：www.kz-112.cn所有</p>
+  </div> 
+  
+
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: 'React之旅-基础知识.html'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html></body>
+
+

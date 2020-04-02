@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="mckA390nq9enWnEOLW8yGwxTSNfbPVcKqVUnhER0SEY">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://kemaosen.github.io/"); // 这里替换成你的首页地址
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+  <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0b5b495b.js","daovoice")
+  
+  daovoice('init', {
+    app_id: "0b5b495b",
+    user_id: "NO_89757", // 必填: 该用户在您系统上的唯一ID
+    email: "daovoice@example.com", // 选填:  该用户在您系统上的主邮箱
+    name: "道客船长", // 选填: 用户名
+    signed_up: 1449821660 // 选填: 用户的注册时间，用Unix时间戳表示
+    });
+    daovoice('update');
+  </script>
+
+
+  <meta name="description" content="一. 什么是axios Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 官方文档  二. 如何安装到项目中1npm install axios 三. 如何在项目中使用 如何发送GET请求 123456789axios.get(&apos;http://jsonplaceholder.typicode.com/posts&apos;,&amp;#123;    params:&amp;">
+<meta name="keywords" content="Vue,axios,Axios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Vue中使用axios + 封装一次axios">
+<meta property="og:url" content="https://kemaosen.github.io/封装axios.html">
+<meta property="og:site_name" content="Kms&#39;Home">
+<meta property="og:description" content="一. 什么是axios Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 官方文档  二. 如何安装到项目中1npm install axios 三. 如何在项目中使用 如何发送GET请求 123456789axios.get(&apos;http://jsonplaceholder.typicode.com/posts&apos;,&amp;#123;    params:&amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/kemaosen/MakeDownGit/blob/master/Vue/axios/axios_get.png?raw=true">
+<meta property="og:updated_time" content="2019-07-07T09:13:27.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Vue中使用axios + 封装一次axios">
+<meta name="twitter:description" content="一. 什么是axios Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 官方文档  二. 如何安装到项目中1npm install axios 三. 如何在项目中使用 如何发送GET请求 123456789axios.get(&apos;http://jsonplaceholder.typicode.com/posts&apos;,&amp;#123;    params:&amp;">
+<meta name="twitter:image" content="https://github.com/kemaosen/MakeDownGit/blob/master/Vue/axios/axios_get.png?raw=true">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://kemaosen.github.io/封装axios">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>在Vue中使用axios + 封装一次axios | Kms'Home</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+    
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kms'Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">kms</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kemaosen.github.io/封装axios.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kms">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kms'Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在Vue中使用axios + 封装一次axios
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-07 15:09:03 / 修改时间：17:13:27" itemprop="dateCreated datePublished" datetime="2019-07-07T15:09:03+08:00">2019-07-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一-什么是axios"><a href="#一-什么是axios" class="headerlink" title="一. 什么是axios"></a>一. 什么是axios</h3><ol>
+<li>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</li>
+<li><a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">官方文档</a><br></li>
+</ol>
+<h3 id="二-如何安装到项目中"><a href="#二-如何安装到项目中" class="headerlink" title="二. 如何安装到项目中"></a>二. 如何安装到项目中</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+<h3 id="三-如何在项目中使用"><a href="#三-如何在项目中使用" class="headerlink" title="三. 如何在项目中使用"></a>三. 如何在项目中使用</h3><ol>
+<li><p>如何发送GET请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'http://jsonplaceholder.typicode.com/posts'</span>,&#123;</span><br><span class="line">    params:&#123; <span class="attr">id</span>:<span class="number">1</span> &#125;     <span class="comment">// ?拼接的方式传参</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123; <span class="comment">// 请求成后的回调</span></span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function">(<span class="params">error</span>)=&gt;</span>&#123;<span class="comment">// 任何错误的出口</span></span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何发送POST请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">axios.post(<span class="string">'https://jsonplaceholder.typicode.com/posts'</span>,&#123;</span><br><span class="line">    id:<span class="number">1</span>    <span class="comment">// // post传参</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123; <span class="comment">// 请求成后的回调</span></span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function">(<span class="params">error</span>)=&gt;</span>&#123;<span class="comment">// 任何错误的出口</span></span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用对象的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    method: <span class="string">'post'</span>,             <span class="comment">// 请求方式</span></span><br><span class="line">    url: <span class="string">'/user/12345'</span>,         <span class="comment">// 请求地址</span></span><br><span class="line">    data: &#123;                     <span class="comment">// 请求参数</span></span><br><span class="line">        firstName: <span class="string">'Fred'</span>,</span><br><span class="line">        lastName: <span class="string">'Flintstone'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    headers:&#123;&#125;,                  <span class="comment">// 设置自定义请求头</span></span><br><span class="line">    timeout:<span class="number">5</span>,                 <span class="comment">// 请求中断时间 超过5秒 自动请求失败</span></span><br><span class="line">    ···<span class="comment">// 更多查看官方文档</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>无论是哪一种方式传参返回 回来的都是响应的主体。它们中我们仅需要的就是data 如何让返回结果只包含data，请求携带token呢？<br><img src="https://github.com/kemaosen/MakeDownGit/blob/master/Vue/axios/axios_get.png?raw=true" alt="响应" title="响应"></p>
+<h3 id="四-axios拦截器的使用"><a href="#四-axios拦截器的使用" class="headerlink" title="四. axios拦截器的使用"></a>四. axios拦截器的使用</h3><ol>
+<li>什么是拦截器: <ul>
+<li>请求拦截器在请求发送之前我们需要做的一些事，它们需要我们反复的添加并且一样。比如添加token验证，参数序列化，修改请求头，等操作</li>
+<li>响应拦截器在响应回来我们需要做的一些事，它们需要我们反复的添加，修改并且一样。比如简化请求返回体，一致的状态码返回处理，等</li>
+</ul>
+</li>
+<li><p>全局请求拦截器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use( </span><br><span class="line">    (config) =&gt; &#123;<span class="comment">// 在发送请求之前做些什么</span></span><br><span class="line">        <span class="comment">// 我们可以在这里添加网站的token验证</span></span><br><span class="line">        <span class="comment">// if (getToken()) &#123;  // 判断是否存在token，如果存在的话，则每个http header都加上token</span></span><br><span class="line">        <span class="comment">//     config.headers.Authorization = `$&#123;getToken()&#125;`;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;, </span><br><span class="line">    (error) =&gt; &#123;<span class="comment">// 对请求错误做些什么</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全局响应拦截器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.response.use(</span><br><span class="line">    (response) =&gt; &#123; <span class="comment">// 对响应数据做点什么</span></span><br><span class="line">        <span class="comment">// 在这里我们可以将请求体简化</span></span><br><span class="line">        <span class="keyword">let</span> data = response.data;</span><br><span class="line">        <span class="keyword">if</span>(data.status === <span class="number">4009</span>)&#123;</span><br><span class="line">            <span class="comment">// console.log('登录失效了')</span></span><br><span class="line">            <span class="comment">// location.href = 'login.html'// 直接跳转登录页</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> data;            <span class="comment">// 最后将数据返回出去</span></span><br><span class="line">    &#125;, </span><br><span class="line">    (error) =&gt; &#123;<span class="comment">// 对响应错误做点什么</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>了解完以上内容我们就可以自己封装一个axios请求的方法了，不过我们可以在了解下其他的，这样会更加的有利于我们封装</p>
+<h3 id="五-全局参数设置"><a href="#五-全局参数设置" class="headerlink" title="五. 全局参数设置"></a>五. 全局参数设置</h3><ol>
+<li>全局默认请求地址前缀。<ul>
+<li>axios.defaults.baseURL = ‘<a href="https://api.example.com&#39;" target="_blank" rel="noopener">https://api.example.com&#39;</a>;</li>
+</ul>
+</li>
+<li>全局默认请求token <ul>
+<li>axios.defaults.headers.common[‘Authorization’] = AUTH_TOKEN;</li>
+</ul>
+</li>
+<li>全局post默认请求头 <ul>
+<li>axios.defaults.headers.post[‘Content-Type’] = ‘application/x-www-form-urlencoded’;</li>
+</ul>
+</li>
+<li>全局参数默认序列化(坑)</li>
+</ol>
+<p>不过我们不用这个。我们有更好的东西<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.transformRequest = [function (data) &#123;</span><br><span class="line">   let ret = &apos;&apos;</span><br><span class="line">   for (let it in data) &#123;</span><br><span class="line">     ret += encodeURIComponent(it) + &apos;=&apos; + encodeURIComponent(data[it]) + &apos;&amp;&apos;</span><br><span class="line">   &#125;</span><br><span class="line">   return ret</span><br><span class="line"> &#125;],</span><br></pre></td></tr></table></figure></p>
+<h3 id="六-在Vue中封装一个axios"><a href="#六-在Vue中封装一个axios" class="headerlink" title="六. 在Vue中封装一个axios"></a>六. 在Vue中封装一个axios</h3><p>通过上面的只是储备，我们闲话不多说，开始封装 </p>
+<ol>
+<li>安装axios<ul>
+<li>npm i axios</li>
+<li>npm i qs      // 使用qs 代替axios中的参数序列化方法</li>
+</ul>
+</li>
+</ol>
+<p>在发送post请求,不将参数序列化，当你请求的时候会一直报错(400，传参错误)。原因就是你参数后台识别不了</p>
+<ol start="2">
+<li>在src目录下创建  api文件夹</li>
+<li><p>在api文件夹下创建ajax.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/api/ajax.js</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span> </span><br><span class="line"><span class="comment">// 设置全局axios 配置</span></span><br><span class="line">axios.defaults.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span>;</span><br><span class="line">axios.defaults.baseURL = <span class="string">'http://wwww.xxx.com'</span>;<span class="comment">// 请求都是 http://wwww.xxx.com 开头 + url</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置请求拦截器</span></span><br><span class="line">axios.interceptors.request.use( </span><br><span class="line">    (config) =&gt; &#123;<span class="comment">// 在发送请求之前做些什么</span></span><br><span class="line">        <span class="comment">// if (getToken()) &#123; config.headers.Authorization = `$&#123;getToken()&#125;`; &#125;</span></span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;, </span><br><span class="line">    (error) =&gt; &#123;<span class="comment">// 对请求错误做些什么</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">&#125;);</span><br><span class="line">axios.interceptors.response.use(</span><br><span class="line">    (response) =&gt; &#123; <span class="comment">// 对响应数据做点什么</span></span><br><span class="line">        <span class="keyword">let</span> data = response.data;</span><br><span class="line">        <span class="keyword">if</span>(data.status === <span class="number">4009</span>)&#123;</span><br><span class="line">            <span class="comment">// console.log('登录失效了')</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> data;            <span class="comment">// 最后将数据返回出去</span></span><br><span class="line">    &#125;, </span><br><span class="line">    (error) =&gt; &#123;<span class="comment">// 对响应错误做点什么</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//重新定义post请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> post = <span class="function">(<span class="params">url, params</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> axios(&#123;</span><br><span class="line">        method: <span class="string">'post'</span>,</span><br><span class="line">        url: <span class="string">`<span class="subst">$&#123;url&#125;</span>`</span>,</span><br><span class="line">        data: qs.stringify(params),</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//重新定义get请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="keyword">get</span> = (url,params) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> axios(&#123;</span><br><span class="line">        method: <span class="string">'get'</span>,</span><br><span class="line">        url: <span class="string">`<span class="subst">$&#123;url&#125;</span>`</span>,</span><br><span class="line">        params</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何全局使用<br>在main.js 将其挂载到Vue上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; post, get &#125; from &apos;./api/ajax&apos;</span><br><span class="line">Vue.prototype.$post = post</span><br><span class="line">Vue.prototype.$get = get</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模块化请求url<br>在api目录下 新增项目对应的模块js文件(便于维护)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/api/url</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> login = <span class="string">'/front/customer/login'</span>        <span class="comment">// 用户登录 ?phone=''&amp;password=''</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> shopping = <span class="string">'/front/goods/goodsGroup'</span>   <span class="comment">// 获取商品</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何使用<br>我们将方法挂载到Vue上后就可以使用this.$post/this.$get 来获取了<br></p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;我是axios测试页面&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button @click="handleLogin"&gt;登录&lt;/</span>button&gt; </span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> &#123;shopping&#125; <span class="keyword">from</span> <span class="string">'@/api/url'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">mounted () &#123;</span><br><span class="line">    <span class="keyword">this</span>.$post(shopping)</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">      &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    handleLogin () &#123;</span><br><span class="line">      <span class="keyword">this</span>.$post(login, &#123;<span class="attr">phone</span>: <span class="number">15555555555</span>, <span class="attr">password</span>: <span class="number">123456</span>&#125;)</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res)</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(error)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="七-恭喜你Get到一个新技能"><a href="#七-恭喜你Get到一个新技能" class="headerlink" title="七. 恭喜你Get到一个新技能"></a>七. 恭喜你Get到一个新技能</h3>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="kms 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="kms 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/axios/" rel="tag"># axios</a>
+          
+            <a href="/tags/Axios/" rel="tag"># Axios</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/鼠标滚动事件的总结.html" rel="next" title="鼠标滚动事件的总结">
+                <i class="fa fa-chevron-left"></i> 鼠标滚动事件的总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/CSS实现一个气泡框.html" rel="prev" title="CSS实现一个气泡框">
+                CSS实现一个气泡框 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDc0NS8yMTI2Ng=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="kms">
+            
+              <p class="site-author-name" itemprop="name">kms</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/kemaosen" title="GitHub &rarr; https://github.com/kemaosen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://juejin.im/user/5cc64a7651882525041c6824" title="掘金 &rarr; https://juejin.im/user/5cc64a7651882525041c6824" rel="noopener" target="_blank"><i class="fa fa-fw fa-juejin"></i>掘金</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-什么是axios"><span class="nav-number">1.</span> <span class="nav-text">一. 什么是axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-如何安装到项目中"><span class="nav-number">2.</span> <span class="nav-text">二. 如何安装到项目中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-如何在项目中使用"><span class="nav-number">3.</span> <span class="nav-text">三. 如何在项目中使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-axios拦截器的使用"><span class="nav-number">4.</span> <span class="nav-text">四. axios拦截器的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-全局参数设置"><span class="nav-number">5.</span> <span class="nav-text">五. 全局参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-在Vue中封装一个axios"><span class="nav-number">6.</span> <span class="nav-text">六. 在Vue中封装一个axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-恭喜你Get到一个新技能"><span class="nav-number">7.</span> <span class="nav-text">七. 恭喜你Get到一个新技能</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kms</span>
+  <div>
+  <span>&nbsp;<a href="http://www.beian.miit.gov.cn">皖ICP备19023836号</a></span>
+    <p>版权所有：www.kz-112.cn所有</p>
+  </div> 
+  
+
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '封装axios.html'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html></body>
+
+

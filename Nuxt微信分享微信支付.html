@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="mckA390nq9enWnEOLW8yGwxTSNfbPVcKqVUnhER0SEY">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://kemaosen.github.io/"); // 这里替换成你的首页地址
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+  <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0b5b495b.js","daovoice")
+  
+  daovoice('init', {
+    app_id: "0b5b495b",
+    user_id: "NO_89757", // 必填: 该用户在您系统上的唯一ID
+    email: "daovoice@example.com", // 选填:  该用户在您系统上的主邮箱
+    name: "道客船长", // 选填: 用户名
+    signed_up: 1449821660 // 选填: 用户的注册时间，用Unix时间戳表示
+    });
+    daovoice('update');
+  </script>
+
+
+  <meta name="description" content="一. 了解微信官方文档地址链接 二. 安装微信SDK1npm install weixin-js-sdk --save 三. 封装微信分享js(wx-share.js)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758import Vu">
+<meta name="keywords" content="nuxt,微信,分享,支付,微信分享,微信支付">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt微信分享微信支付">
+<meta property="og:url" content="https://kemaosen.github.io/Nuxt微信分享微信支付.html">
+<meta property="og:site_name" content="Kms&#39;Home">
+<meta property="og:description" content="一. 了解微信官方文档地址链接 二. 安装微信SDK1npm install weixin-js-sdk --save 三. 封装微信分享js(wx-share.js)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758import Vu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-11T11:36:27.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nuxt微信分享微信支付">
+<meta name="twitter:description" content="一. 了解微信官方文档地址链接 二. 安装微信SDK1npm install weixin-js-sdk --save 三. 封装微信分享js(wx-share.js)12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758import Vu">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://kemaosen.github.io/Nuxt微信分享微信支付">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Nuxt微信分享微信支付 | Kms'Home</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+    
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+    
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kms'Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">kms</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kemaosen.github.io/Nuxt微信分享微信支付.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kms">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kms'Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Nuxt微信分享微信支付
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-11 18:21:01 / 修改时间：19:36:27" itemprop="dateCreated datePublished" datetime="2019-12-11T18:21:01+08:00">2019-12-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Nuxt/" itemprop="url" rel="index"><span itemprop="name">Nuxt</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一-了解微信官方文档"><a href="#一-了解微信官方文档" class="headerlink" title="一. 了解微信官方文档"></a>一. 了解微信官方文档</h3><p><a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#1" title="地址链接" target="_blank" rel="noopener">地址链接</a></p>
+<h3 id="二-安装微信SDK"><a href="#二-安装微信SDK" class="headerlink" title="二. 安装微信SDK"></a>二. 安装微信SDK</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install weixin-js-sdk --save</span><br></pre></td></tr></table></figure>
+<h3 id="三-封装微信分享js-wx-share-js"><a href="#三-封装微信分享js-wx-share-js" class="headerlink" title="三. 封装微信分享js(wx-share.js)"></a>三. 封装微信分享js(wx-share.js)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> wx <span class="keyword">from</span> <span class="string">'weixin-js-sdk'</span>;<span class="comment">// 引入微信sdk</span></span><br><span class="line"><span class="comment">/*post       post请求方法</span></span><br><span class="line"><span class="comment">webShare     获取 wx.config(&#123;&#125;)需要的参数</span></span><br><span class="line"><span class="comment">baseURLError 项目地址 用于拼接链接</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">import</span> &#123; post, webShare, baseURLError &#125; <span class="keyword">from</span> <span class="string">'@/server'</span>;<span class="comment">// 封装好的 axios 请求</span></span><br><span class="line">Vue.prototype.$wechat = wx;</span><br><span class="line"><span class="keyword">const</span> wechatShare = &#123;</span><br><span class="line">    install(Vue) &#123;</span><br><span class="line">        Vue.prototype.wxShare = <span class="function"><span class="keyword">function</span>(<span class="params">shareData</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">const</span> pageUrl = <span class="built_in">window</span>.location.href;<span class="comment">// 获取当前地址 用于请求 获取wx.config(&#123;&#125;)需要的参数</span></span><br><span class="line">            post(webShare, &#123; <span class="attr">url</span>: <span class="built_in">encodeURIComponent</span>(pageUrl) &#125;)</span><br><span class="line">                .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">const</span> data = res.data;</span><br><span class="line">                    <span class="keyword">this</span>.$wechat.config(&#123;</span><br><span class="line">                        debug: <span class="literal">false</span>,</span><br><span class="line">                        appId: data.appId,</span><br><span class="line">                        timestamp: data.timestamp,</span><br><span class="line">                        nonceStr: data.nonceStr,</span><br><span class="line">                        signature: data.signature,</span><br><span class="line">                        jsApiList: [ <span class="string">'updateAppMessageShareData'</span>, <span class="string">'updateTimelineShareData'</span> ]<span class="comment">// 你需要使用的微信api功能 必填</span></span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 完成配置 加载分享功能</span></span><br><span class="line">                    <span class="comment">// shareData参数是我们调用传进来的对象</span></span><br><span class="line">                    <span class="keyword">this</span>.$wechat.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                        <span class="comment">// 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）</span></span><br><span class="line">                        <span class="keyword">this</span>.$wechat.updateAppMessageShareData(&#123;</span><br><span class="line">                            title: shareData.title,</span><br><span class="line">                            desc: shareData.desc,</span><br><span class="line">                            link: baseURLError + shareData.link,</span><br><span class="line">                            imgUrl: shareData.imgUrl,</span><br><span class="line">                            success() &#123;</span><br><span class="line">                                <span class="comment">// 设置成功</span></span><br><span class="line">                            &#125;,</span><br><span class="line">                            cancel() &#123;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        <span class="comment">// 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）</span></span><br><span class="line">                        <span class="keyword">this</span>.$wechat.updateTimelineShareData(&#123;</span><br><span class="line">                            title: shareData.title,</span><br><span class="line">                            desc: shareData.desc,</span><br><span class="line">                            link: baseURLError + shareData.link,</span><br><span class="line">                            imgUrl: shareData.imgUrl,</span><br><span class="line">                            success() &#123;</span><br><span class="line">                                <span class="comment">// 设置成功</span></span><br><span class="line">                            &#125;,</span><br><span class="line">                            cancel() &#123;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Vue.use(wechatShare);</span><br></pre></td></tr></table></figure>
+<h3 id="四-如何使用"><a href="#四-如何使用" class="headerlink" title="四. 如何使用"></a>四. 如何使用</h3><ol>
+<li><p>在nuxt.config.js中添加</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    &#123; <span class="attr">src</span>: <span class="string">'~plugins/wx-share'</span>, <span class="attr">ssr</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>页面中使用</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">···</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">    mounted() &#123;</span></span><br><span class="line"><span class="regexp">        /</span>*</span><br><span class="line">        *title 分享的标题</span><br><span class="line">        *desc  分享的文本简介内容</span><br><span class="line">        *link  分享出去的链接地址（必须http:<span class="comment">//开头，不然你会哭）</span></span><br><span class="line">        * imgUrl分享出去的图片（必须http:<span class="comment">//开头，不然你会哭）</span></span><br><span class="line">        *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">        this.wxShare(&#123; title: '', desc: '', link: '', imgUrl: '' &#125;);</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="五-微信JSAPI-封装微信支付-wx-pay-js"><a href="#五-微信JSAPI-封装微信支付-wx-pay-js" class="headerlink" title="五. 微信JSAPI 封装微信支付(wx-pay.js)"></a>五. 微信JSAPI 封装微信支付(wx-pay.js)</h3><ol>
+<li>创建js文件 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取url中的参数</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getUrlParam</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>); <span class="comment">// 构造一个含有目标参数的正则表达式对象</span></span><br><span class="line">    <span class="keyword">const</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg);  <span class="comment">// 匹配目标参数</span></span><br><span class="line">    <span class="keyword">if</span> (r != <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="built_in">unescape</span>(r[<span class="number">2</span>]); &#125; <span class="keyword">return</span> <span class="literal">null</span>; <span class="comment">// 返回参数值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这里请使用var 声明 不然下面无法获取到wxData 导致无法唤起支付</span></span><br><span class="line"><span class="comment">// eslint-disable-next-line no-unused-vars</span></span><br><span class="line"><span class="comment">// eslint-disable-next-line no-var</span></span><br><span class="line"><span class="keyword">var</span> wxData = &#123;&#125;;</span><br><span class="line"><span class="comment">//  调用微信JS api 支付</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*success       支付成功的回调方法</span></span><br><span class="line"><span class="comment">*error         支付失败的回调方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">jsApiCall</span>(<span class="params">success, error</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// eslint-disable-next-line no-undef</span></span><br><span class="line">    WeixinJSBridge.invoke(<span class="string">'getBrandWCPayRequest'</span>, &#123;</span><br><span class="line">        <span class="string">'appId'</span>: wxData.appId,     <span class="comment">// 公众号名称，由商户传入</span></span><br><span class="line">        <span class="string">'timeStamp'</span>: wxData.timeStamp,         <span class="comment">// 时间戳，自1970年以来的秒数</span></span><br><span class="line">        <span class="string">'nonceStr'</span>: wxData.nonceStr, <span class="comment">// 随机串</span></span><br><span class="line">        <span class="string">'package'</span>: wxData.prepayId,     <span class="comment">// 统一订单号</span></span><br><span class="line">        <span class="string">'signType'</span>: <span class="string">'MD5'</span>,         <span class="comment">// 微信签名方式：</span></span><br><span class="line">        <span class="string">'paySign'</span>: wxData.paySign <span class="comment">// 支付签名</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (res.err_msg === <span class="string">'get_brand_wcpay_request:ok'</span>) &#123; <span class="comment">// 微信支付成功  回调</span></span><br><span class="line">            success();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 这里支付失败和支付取消统一处理//微信支付失败回调</span></span><br><span class="line">            error();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// // 唤起微信方法</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">callWxPay</span>(<span class="params">a, success, error</span>) </span>&#123;</span><br><span class="line">    wxData = a;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>, jsApiCall, <span class="literal">false</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'WeixinJSBridgeReady'</span>, jsApiCall);</span><br><span class="line">            <span class="built_in">document</span>.attachEvent(<span class="string">'onWeixinJSBridgeReady'</span>, jsApiCall);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        jsApiCall(success, error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="六-如何使用"><a href="#六-如何使用" class="headerlink" title="六. 如何使用"></a>六. 如何使用</h3><ol>
+<li><p>第一步</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击支付按钮 调用接口获取appId </span></span><br><span class="line"><span class="comment">// 使用window.location.replace 方法打开微信新页面获取 code</span></span><br><span class="line"><span class="comment">// 此时微信回打开一个页面 然后会回到当前页面</span></span><br><span class="line">handleGoPay() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$post(getWxAppId)</span><br><span class="line">        .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (res.status === <span class="number">200</span>) &#123;</span><br><span class="line">                <span class="built_in">window</span>.location.replace(<span class="string">'https://open.weixin.qq.com/connect/oauth2/authorize?appid='</span> + res.appId + <span class="string">'&amp;redirect_uri='</span> + <span class="built_in">window</span>.location.href + <span class="string">'&amp;response_type=code&amp;scope=snsapi_userinfo#wechat_redirect'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(error); &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在发起支付的页面</span></span><br><span class="line"><span class="keyword">import</span> &#123; getUrlParam, callWxPay &#125; <span class="keyword">from</span> <span class="string">'@/plugins/wx-pay'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        <span class="comment">// 调用方法获取 微信code</span></span><br><span class="line">        <span class="keyword">this</span>.wxCode = getUrlParam(<span class="string">'code'</span>);</span><br><span class="line">        <span class="comment">// 如果链接中含有code 则掉接口发起微信支付</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.wxCode) &#123;</span><br><span class="line">            <span class="keyword">this</span>.$post(fortDataChannel, &#123; <span class="attr">formCode</span>: <span class="string">'订单号'</span>, <span class="attr">code</span>: <span class="keyword">this</span>.wxCode &#125;)</span><br><span class="line">                .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (res.status === <span class="number">200</span>) &#123;</span><br><span class="line">                        <span class="comment">//res.data 是后台返回吊起微信支付的配置参数也就是wxData</span></span><br><span class="line">                        <span class="comment">// 吊起支付后 关闭支付后执行的函数</span></span><br><span class="line">                        callWxPay(res.data, () =&gt; &#123; <span class="keyword">this</span>.$router.replace(<span class="string">'/success'</span>); &#125;, () =&gt; &#123; <span class="keyword">this</span>.$router.replace(<span class="string">'/error'</span>); &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(error); &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="kms 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="kms 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nuxt/" rel="tag"># nuxt</a>
+          
+            <a href="/tags/微信/" rel="tag"># 微信</a>
+          
+            <a href="/tags/分享/" rel="tag"># 分享</a>
+          
+            <a href="/tags/支付/" rel="tag"># 支付</a>
+          
+            <a href="/tags/微信分享/" rel="tag"># 微信分享</a>
+          
+            <a href="/tags/微信支付/" rel="tag"># 微信支付</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/React之旅-基础知识.html" rel="next" title="React之旅一">
+                <i class="fa fa-chevron-left"></i> React之旅一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SVG-path路径.html" rel="prev" title="SVG-path路径">
+                SVG-path路径 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDc0NS8yMTI2Ng=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="kms">
+            
+              <p class="site-author-name" itemprop="name">kms</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/kemaosen" title="GitHub &rarr; https://github.com/kemaosen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://juejin.im/user/5cc64a7651882525041c6824" title="掘金 &rarr; https://juejin.im/user/5cc64a7651882525041c6824" rel="noopener" target="_blank"><i class="fa fa-fw fa-juejin"></i>掘金</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-了解微信官方文档"><span class="nav-number">1.</span> <span class="nav-text">一. 了解微信官方文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-安装微信SDK"><span class="nav-number">2.</span> <span class="nav-text">二. 安装微信SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-封装微信分享js-wx-share-js"><span class="nav-number">3.</span> <span class="nav-text">三. 封装微信分享js(wx-share.js)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-如何使用"><span class="nav-number">4.</span> <span class="nav-text">四. 如何使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-微信JSAPI-封装微信支付-wx-pay-js"><span class="nav-number">5.</span> <span class="nav-text">五. 微信JSAPI 封装微信支付(wx-pay.js)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-如何使用"><span class="nav-number">6.</span> <span class="nav-text">六. 如何使用</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kms</span>
+  <div>
+  <span>&nbsp;<a href="http://www.beian.miit.gov.cn">皖ICP备19023836号</a></span>
+    <p>版权所有：www.kz-112.cn所有</p>
+  </div> 
+  
+
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: 'Nuxt微信分享微信支付.html'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html></body>
+
+
