@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微信小程序]]></title>
+    <url>%2Fkms-123%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html</url>
+    <content type="text"><![CDATA[一. 目录结构&amp;&amp;配置文件说明 app.json：当前小程序所有的配置（必须的） window：当前小程序顶部title配置（全局） app.js：小程序逻辑（全局）（必须的） app.wxss：全局样式文件 pages：小程序所有的页面结构目录 每个页面又由以下四个文件组成 js ： wxml ： json ：当前页面的配置（列入窗口） wxss ： project.config.json： 工具配置（跟换电脑，对该项目不许要在重新配置） WXML == HTML WXSS == CSS 他们在 渲染层工作 二. 常用组件的说明 view == div text == span block == 一般配合wx:if wx:elif ex:else wx:for使用 将代码打包成块block 并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。 三. 小程序常用的事件 冒泡事件 非冒泡事件 事件类型有哪些 tap：触摸马上离开(点击事件) longpress：长按 不会触发元素自身定义过的tap事件 longtap：长按 会触发元素自身定义过的tap事件 注意： 冒泡事件用bind开头 非冒泡事件用catch 后面都跟事件类型 事件第一个参数默认返回event对象 target: 当前点击元素 currtarget：当前触发事件的元素 四. 路由跳转 wx.navigateTo: // 路由跳转到/page/index/index 1wx.navigateTo(&#123; url: '/page/index/index'&#125;) wx.redirectTo：//关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面 1wx.redirectTo(&#123; url: "/page/index/index"&#125;) wx.switchTab：// 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面 1wx.switchTab(&#123; url: &quot;/page/index/index&quot; &#125;) wx.navigateBack：//关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages 获取当前的页面栈，决定需要返回几层 1wx.navigateBack(&#123;delta:1&#125;)// delta大于页面栈 将返回到首页 五. 小程序常用的API wx.getSetting：获取用户是否授权了 1234567891011121314151617181920wx.getSetting(&#123; withSubscriptions: true, // 是否同时获取用户订阅消息的订阅状态 success (res) &#123; console.log(res.authSetting)// 用户授权信息 // res.authSetting = &#123; // "scope.userInfo": true, // "scope.userLocation": true // &#125; console.log(res.subscriptionsSetting)// 用户订阅信息 // res.subscriptionsSetting = &#123; // mainSwitch: true, // 订阅消息总开关 // itemSettings: &#123; // 每一项开关 // SYS_MSG_TYPE_INTERACTIVE: 'accept', // 小游戏系统订阅消息 // SYS_MSG_TYPE_RANK: 'accept' // zun-LzcQyW-edafCVvzPkK4de2Rllr1fFpw2A_x0oXE: 'reject', // 普通一次性订阅消息 // ke_OZC_66gZxALLcsuI7ilCJSP2OJ2vWo2ooUPpkWrw: 'ban', // &#125; // &#125; &#125;&#125;) wx.getUserInfo 获取用户授权后的 用户信息 12345678910wx.getUserInfo(&#123; success: (res) =&gt; &#123; this.setData(&#123; userInfo:&#123; avatarUrl:res.userInfo.avatarUrl,// 头像 nickName:res.userInfo.nickName // 用户名 &#125; &#125;) &#125;,&#125;) 获取用户地理位置 1234567wx.getLocation(&#123; type: 'wgs84', success: (res) =&gt; &#123; var latitude = res.latitude // 纬度 var longitude = res.longitude // 经度 &#125;&#125;) 调起微信扫一扫 12345wx.scanCode(&#123; success: (res) =&gt; &#123; console.log(res) &#125;&#125;) wx.showToast: 掉起message提示 12345wx.showToast(&#123; title: '页面出错了', icon:"none",mask:true,// 是否显示透明蒙层，防止触摸穿透 image:"url", duration:"time",// 提示的时间、 success:()=&gt;&#123;&#125;// 成功的函数&#125;) wx.showModal：掉起模态框 1234567wx.showModal(&#123; title:"提示框", content:"提示内容", showCancel:true, // 是否显示取消按钮 cancelText:"string",confirmText:"string" // 取消/确认按钮的文字 cancelColor:'string', // 颜色 success:fn // 成功的回调&#125;) 六. 小程序底部tabbar的配置：至少2个 最多5个1234567891011 app.json"tabBar": &#123; "selectedColor":"green", // 选中的当前吧文字颜色 "list": [ &#123; "pagePath": "pages/index/index", // 跳转的路由 "text": "Home", // 每个item显示的文字 "iconPath": "./images/tabbar/home.png", // 没有选中的时候展示的图片效果 "selectedIconPath": "./images/tabbar/home1.png"// 选中当前bar展示的效果 &#125;,&#125; 七. 生命周期 onLoad：监听页面加载 // 页面加载 请求数据 123onLoad: function (options) &#123; // options 上一个页面 传递的路由参数&#125;, onReady： 监听页面初次渲染完成 // 123onReady: function () &#123;&#125;, onShow: 监听页面显示 // 每次显示页面 就会执行 123onShow: function () &#123;&#125;, onHide: 监听页面隐藏// 每次关闭页面 就会执行 123onUnload: function () &#123;&#125;, onPullDownRefresh： 监听用户下拉动作 123onPullDownRefresh: function () &#123;&#125;, onReachBottom：页面上拉触底事件的处理函数 123onReachBottom: function () &#123;&#125;, onShareAppMessage： 用户点击右上角分享 // 如果没有写这个 那么页面就无法分分享 1234567onShareAppMessage: function () &#123; return &#123; title:"自定义标题", path:"/pages/kms/kms", imageUrl:"../../images/kms/1.jpg" &#125;&#125; 坑 小程序上面添加自定义属性data 会自动转化成小写 第三个会大写 data-Url-url === data-url-Rul]]></content>
+      <categories>
+        <category>微信</category>
+        <category>小程序</category>
+      </categories>
+      <tags>
+        <tag>微信</tag>
+        <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[React开发框架搭建]]></title>
     <url>%2Fkms-123%2FReact%E4%B9%8B%E6%97%85-%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E6%A1%86%E6%9E%B6.html</url>
     <content type="text"><![CDATA[一. 介绍 ^:在此为工程目录 二. 创建初始化项目1careta-react-app kuangjia 三. 安装其他第三方模块1yarn add axios antd less less-loader react-redux react-router-dom babel-plugin-import 四. 配置less-loader 导数webpack配置 1yarn eject ^/config/webpack.config.js 中 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647// style files regexesconst cssRegex = /\.css$/;const cssModuleRegex = /\.module\.css$/;const sassRegex = /\.(scss|sass)$/;const sassModuleRegex = /\.module\.(scss|sass)$/;+ const lessRegex = /\.(less|less)$/;+ const lessModuleRegex = /\.module\.(less|less)$/;&#123; test: sassModuleRegex, use: getStyleLoaders( &#123; importLoaders: 3, sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap, modules: &#123; getLocalIdent: getCSSModuleLocalIdent, &#125;, &#125;, 'sass-loader' ),&#125;,+ &#123;+ test: lessRegex,+ exclude: lessModuleRegex,+ use: getStyleLoaders(+ &#123;+ importLoaders: 2,+ sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,+ &#125;,+ 'less-loader'+ ),+ sideEffects: true,+ &#125;,+ &#123;+ test: lessModuleRegex,+ use: getStyleLoaders(+ &#123;+ importLoaders: 2,+ sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,+ modules: true,+ getLocalIdent: getCSSModuleLocalIdent,+ &#125;,+ 'less-loader'+ ),+ &#125;, 五. 配置antd主题 并添加按需引入(按需引入的插件在第三步已经安装了) ^/package.json中 (按需引入) 123456789101112131415161718192021222324252627 "babel": &#123; "presets": [ "react-app" ], "plugins": [ [ "@babel/plugin-proposal-decorators", &#123; "legacy": true &#125; ], [ "@babel/plugin-proposal-class-properties", &#123; "loose": true &#125; ], [ "import", &#123; "libraryName": "antd", "libraryDirectory": "es", "style": true &#125; ] ]&#125; ^/config/webpack.config.js 中(定制主题色) 123456789101112131415161718192021222324252627282930313233 if (preProcessor) &#123; loaders.push( &#123; loader: require.resolve('resolve-url-loader'), options: &#123; sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap, &#125;, &#125;, &#123; loader: require.resolve(preProcessor), options: &#123; sourceMap: true, &#125;, &#125; ); + let loader = &#123; + loader: require.resolve(preProcessor), + options: &#123; + sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap, + &#125; + &#125; + if (preProcessor === "less-loader") &#123; + loader.options.modifyVars = &#123; + '@primary-color': '#f9c700', + '@link-color': '#1DA57A', + '@border-radius-base': '2px' + &#125; + loader.options.javascriptEnabled = true + &#125; + loaders.push(loader); &#125; return loaders;&#125;; 六. 页面结构定义]]></content>
@@ -11,9 +24,9 @@
       </categories>
       <tags>
         <tag>React</tag>
+        <tag>开发</tag>
         <tag>学习</tag>
         <tag>框架</tag>
-        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
@@ -26,9 +39,9 @@
       </categories>
       <tags>
         <tag>React</tag>
-        <tag>Redux</tag>
         <tag>学习</tag>
         <tag>框架</tag>
+        <tag>Redux</tag>
       </tags>
   </entry>
   <entry>
