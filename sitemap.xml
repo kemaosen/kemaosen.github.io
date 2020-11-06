@@ -2,23 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://kms-123.gitee.io/kms-123/Vue%E4%B8%AD%E6%B7%BB%E5%8A%A0Quill%E5%AF%8C%E6%96%87%E6%9C%AC.html</loc>
+    <loc>http://kms-123.gitee.io/kms-123/Nuxt%E9%87%87%E5%9D%91%E9%94%A6%E9%9B%86.html</loc>
     
-    <lastmod>2020-11-06T08:46:39.890Z</lastmod>
+    <lastmod>2020-11-06T09:07:57.458Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kms-123.gitee.io/kms-123/VSCode+ESlint%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%A4%8D%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E9%94%99%E8%AF%AF.html</loc>
+    
+    <lastmod>2020-11-06T09:06:24.751Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://kms-123.gitee.io/kms-123/Vue-Vuex%E7%9A%84%E4%BD%BF%E7%94%A8.html</loc>
     
-    <lastmod>2020-11-06T06:10:41.247Z</lastmod>
+    <lastmod>2020-11-06T09:03:39.316Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kms-123.gitee.io/kms-123/Vue%E6%9D%83%E9%99%90%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E8%8F%9C%E5%8D%95.html</loc>
+    
+    <lastmod>2020-11-06T09:02:38.065Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://kms-123.gitee.io/kms-123/Vue%E4%B8%AD%E6%B7%BB%E5%8A%A0Quill%E5%AF%8C%E6%96%87%E6%9C%AC%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%B3%95.html</loc>
     
-    <lastmod>2020-11-06T05:23:16.363Z</lastmod>
+    <lastmod>2020-11-06T09:00:17.646Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kms-123.gitee.io/kms-123/Vue%E4%B8%AD%E6%B7%BB%E5%8A%A0Quill%E5%AF%8C%E6%96%87%E6%9C%AC.html</loc>
+    
+    <lastmod>2020-11-06T08:49:17.911Z</lastmod>
     
   </url>
   
@@ -128,20 +149,6 @@
   </url>
   
   <url>
-    <loc>http://kms-123.gitee.io/kms-123/Vue%E6%9D%83%E9%99%90%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E8%8F%9C%E5%8D%95.html</loc>
-    
-    <lastmod>2019-09-01T03:36:35.214Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kms-123.gitee.io/kms-123/VSCode+ESlint%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%A4%8D%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E9%94%99%E8%AF%AF.html</loc>
-    
-    <lastmod>2019-08-29T03:01:39.431Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://kms-123.gitee.io/kms-123/CSS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%B0%94%E6%B3%A1%E6%A1%86.html</loc>
     
     <lastmod>2019-07-19T10:24:29.906Z</lastmod>
@@ -166,13 +173,6 @@
     <loc>http://kms-123.gitee.io/kms-123/%E5%85%B3%E4%BA%8Evideo%E6%A0%87%E7%AD%BE%E7%9A%84%E6%80%BB%E7%BB%93.html</loc>
     
     <lastmod>2019-06-30T04:14:52.336Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kms-123.gitee.io/kms-123/Nuxt%E9%87%87%E5%9D%91%E9%94%A6%E9%9B%86.html</loc>
-    
-    <lastmod>2019-06-30T03:12:43.853Z</lastmod>
     
   </url>
   
