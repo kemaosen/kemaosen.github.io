@@ -275,12 +275,12 @@
         <category>移动设备浏览器兼容性</category>
       </categories>
       <tags>
-        <tag>安卓</tag>
-        <tag>js</tag>
         <tag>浏览器兼容性</tag>
         <tag>苹果手机</tag>
         <tag>NaN</tag>
         <tag>时间</tag>
+        <tag>js</tag>
+        <tag>安卓</tag>
       </tags>
   </entry>
   <entry>
@@ -291,10 +291,10 @@
         <category>移动设备浏览器兼容性</category>
       </categories>
       <tags>
+        <tag>js</tag>
+        <tag>安卓</tag>
         <tag>浏览器兼容</tag>
         <tag>苹果</tag>
-        <tag>安卓</tag>
-        <tag>js</tag>
       </tags>
   </entry>
   <entry>

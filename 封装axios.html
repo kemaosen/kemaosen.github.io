@@ -120,12 +120,12 @@
 <meta property="og:site_name" content="Kms&#39;Home">
 <meta property="og:description" content="一. 什么是axios Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 官方文档  二. 如何安装到项目中1npm install axios 三. 如何在项目中使用 如何发送GET请求 123456789axios.get(&apos;http://jsonplaceholder.typicode.com/posts&apos;,&amp;#123;    params:&amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/kemaosen/MakeDownGit/blob/master/Vue/axios/axios_get.png?raw=true">
-<meta property="og:updated_time" content="2019-07-07T09:13:27.936Z">
+<meta property="og:image" content="http://kms-123.gitee.io/images/Vue/axios/axios_get.png">
+<meta property="og:updated_time" content="2020-11-06T12:28:39.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Vue中使用axios + 封装一次axios">
 <meta name="twitter:description" content="一. 什么是axios Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 官方文档  二. 如何安装到项目中1npm install axios 三. 如何在项目中使用 如何发送GET请求 123456789axios.get(&apos;http://jsonplaceholder.typicode.com/posts&apos;,&amp;#123;    params:&amp;">
-<meta name="twitter:image" content="https://github.com/kemaosen/MakeDownGit/blob/master/Vue/axios/axios_get.png?raw=true">
+<meta name="twitter:image" content="http://kms-123.gitee.io/images/Vue/axios/axios_get.png">
 
 
 
@@ -441,12 +441,24 @@
                 
               
 
-              <time title="创建时间：2019-07-07 15:09:03 / 修改时间：17:13:27" itemprop="dateCreated datePublished" datetime="2019-07-07T15:09:03+08:00">2019-07-07</time>
+              <time title="创建时间：2019-07-07 15:09:03" itemprop="dateCreated datePublished" datetime="2019-07-07T15:09:03+08:00">2019-07-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-11-06 20:28:39" itemprop="dateModified" datetime="2020-11-06T20:28:39+08:00">2020-11-06</time>
               
             
           </span>
@@ -521,7 +533,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    method: <span class="string">'post'</span>,             <span class="comment">// 请求方式</span></span><br><span class="line">    url: <span class="string">'/user/12345'</span>,         <span class="comment">// 请求地址</span></span><br><span class="line">    data: &#123;                     <span class="comment">// 请求参数</span></span><br><span class="line">        firstName: <span class="string">'Fred'</span>,</span><br><span class="line">        lastName: <span class="string">'Flintstone'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    headers:&#123;&#125;,                  <span class="comment">// 设置自定义请求头</span></span><br><span class="line">    timeout:<span class="number">5</span>,                 <span class="comment">// 请求中断时间 超过5秒 自动请求失败</span></span><br><span class="line">    ···<span class="comment">// 更多查看官方文档</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>无论是哪一种方式传参返回 回来的都是响应的主体。它们中我们仅需要的就是data 如何让返回结果只包含data，请求携带token呢？<br><img src="https://github.com/kemaosen/MakeDownGit/blob/master/Vue/axios/axios_get.png?raw=true" alt="响应" title="响应"></p>
+<p>无论是哪一种方式传参返回 回来的都是响应的主体。它们中我们仅需要的就是data 如何让返回结果只包含data，请求携带token呢？<br><img src="../images/Vue/axios/axios_get.png" alt="响应"></p>
 <h3 id="四-axios拦截器的使用"><a href="#四-axios拦截器的使用" class="headerlink" title="四. axios拦截器的使用"></a>四. axios拦截器的使用</h3><ol>
 <li>什么是拦截器: <ul>
 <li>请求拦截器在请求发送之前我们需要做的一些事，它们需要我们反复的添加并且一样。比如添加token验证，参数序列化，修改请求头，等操作</li>
